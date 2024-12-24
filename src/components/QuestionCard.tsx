@@ -1,12 +1,10 @@
 import { View } from "react-native";
 import AnswerOption from "./AnswerOption";
 import Card from "./Card";
+import { useState } from "react";
+import { Question } from "../types";
 
-type Question = {
 
-    title: string,
-    options: string[];
-}
 
 
 type QuestionCard = {
@@ -15,14 +13,12 @@ type QuestionCard = {
 }
 
 
-
-
 export default function QuestionCard({ question }: QuestionCard) {
 
-    const selectedOption = question.options[0];
+    const [selectedOption, setSelectedOption] = useState<string | undefined>();
 
     const onOptionSelected = (option: string) => {
-        console.warn('Selected: ', option);
+        setSelectedOption(option);
     };
 
     return (
@@ -40,8 +36,6 @@ export default function QuestionCard({ question }: QuestionCard) {
 
             </View>
         </Card>
-
-
 
 
     )

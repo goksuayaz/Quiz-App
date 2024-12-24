@@ -20,7 +20,6 @@ export default function Card({ title, children }: PropsWithChildren<Card>) {
 
             {children}
 
-
         </View>
     )
 }
