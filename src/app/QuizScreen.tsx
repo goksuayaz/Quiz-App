@@ -1,30 +1,23 @@
 import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native'
 import QuestionCard from '../components/QuestionCard'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import questions from '../questions';
 import Card from '../components/Card';
 import CustomButton from '../components/CustomButton';
-import { useState } from 'react';
+import { useQuizContext } from '../providers/QuizProvider';
 
 
 export default function QuizScreen() {
 
-    const [questionIndex, setQuestionIndex] = useState(0);
-
-    const question = questions[questionIndex];
-
-    const onNext = () => {
-
-        setQuestionIndex((currValue) => currValue + 1);
-    }
+    const { question, questionIndex, onNext, score, totalQuestions } = useQuizContext();
 
     return (
+
         <SafeAreaView style={styles.page}>
             <View style={styles.container}>
 
                 {/* Header */}
                 <View>
-                    <Text style={styles.title}> Question {questionIndex + 1}/5 </Text>
+                    <Text style={styles.title}> Question {questionIndex + 1}/{totalQuestions} </Text>
                 </View>
 
 
@@ -37,7 +30,7 @@ export default function QuizScreen() {
                     </View>
                 ) : (
                     <Card title="Well done">
-                        <Text> Correct answers: 3/5 </Text>
+                        <Text> Correct answers: {score}/{totalQuestions} </Text>
                         <Text> Best score: 10 </Text>
                     </Card>
                 )}
