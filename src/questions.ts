@@ -12,15 +12,41 @@ export default [
 
     {
         title: "Which language is primarily used for styling web pages?",
-        options: [
-            "HTML", "Phyton", "CSS", "JavaScript"],
+        options: ["HTML", "Python", "CSS", "JavaScript"],
         correctAnswer: "CSS",
     },
 
     {
-        title: "In programming, what is a 'bug'?",
+        title: "What does 'API' stand for?",
         options: [
-            "A feature that's not documented", "An error in a program", "A type of virus", "fdsfsfd"],
-        correctAnswer: "An error in a program",
+            "Application Programming Interface",
+            "Automated Programming Integration",
+            "Applied Programming Instructions",
+            "Advanced Programming Interface",
+        ],
+        correctAnswer: "Application Programming Interface",
+    },
+
+    {
+        title: "Which of these is a JavaScript framework?",
+        options: [
+            "Laravel",
+            "React",
+            "Django",
+            "Ruby on Rails",
+        ],
+        correctAnswer: "React",
+    },
+
+    {
+        title: "What is the result of 3 + '3' in JavaScript?",
+        options: [
+            "6",
+            "33",
+            "Error",
+            "Undefined",
+        ],
+        correctAnswer: "33",
     }
 ];
+

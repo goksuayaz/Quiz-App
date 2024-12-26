@@ -1,7 +1,7 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import AnswerOption from "./AnswerOption";
 import Card from "./Card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Question } from "../types";
 
 type QuestionCard = {
@@ -12,15 +12,21 @@ export default function QuestionCard({ question }: QuestionCard) {
 
     useEffect(() => {
         console.log('Question card mounted');
-        // start listening to this question updates
-        console.log('Question changed');
 
         return () => {
-            console.log('Question card cleanup');
-            // stop listening to question updates
+            console.log('Question card unmounted');
+        };
+    }, []);
+
+    useEffect(() => {
+        console.log('Question changed');
+        // start listening this question updates
+
+        return () => {
+            console.log('Question card change: Cleanup');
+            // stop listening this question updates
         };
     }, [question]);
-
 
     return (
         <Card title={question.title}>
