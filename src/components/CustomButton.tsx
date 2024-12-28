@@ -1,27 +1,30 @@
 import { Pressable, Text, StyleSheet, View, PressableProps } from "react-native";
 
-
-type CustomButton = {
+type CustomButtonProps = {
     title: string;
     rightIcon?: React.ReactNode;
 } & PressableProps;
 
-
-export default function CustomButton({ title, rightIcon, ...pressableProps }: CustomButton) {
+export default function CustomButton({ title, rightIcon, ...pressableProps }: CustomButtonProps) {
     console.log(pressableProps);
 
     return (
         <Pressable
             {...pressableProps}
-            style={styles.button}>
-            <Text style={styles.buttonText}> {title}  </Text>
-            <View style={styles.rightIcon}> {rightIcon} </View>
+            style={({ pressed }) => [
+                styles.button,
+                pressed && { opacity: 0.8 }
+            ]}
+        >
+            <Text style={styles.buttonText}>{title || "Default Title"}</Text>
+            {rightIcon ? (
+                <View style={styles.rightIcon}>{rightIcon}</View>
+            ) : null}
         </Pressable>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
-
     button: {
         backgroundColor: "#005055",
         padding: 20,
@@ -35,15 +38,10 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         fontSize: 16,
         letterSpacing: 1.5,
-
     },
 
     rightIcon: {
-
         position: "absolute",
         right: 20,
-
-    }
-
-
-})
+    },
+});
