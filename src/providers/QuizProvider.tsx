@@ -29,7 +29,7 @@ const QuizContext = createContext<QuizContext>({
 
 export default function QuizProvider({ children }: PropsWithChildren) {
 
-    const [questionIndex, setQuestionIndex] = useState(1);
+    const [questionIndex, setQuestionIndex] = useState(0);
     const question = questions[questionIndex];
 
     const [selectedOption, setSelectedOption] = useState<string | undefined>();
