@@ -43,7 +43,9 @@ export default function QuizScreen() {
             <View style={styles.container}>
                 {/* Header */}
                 <View>
-                    <Text style={styles.title}> Question {questionIndex + 1}/{totalQuestions} </Text>
+                    <Text style={styles.title}>
+                        Question {question ? questionIndex + 1 : totalQuestions}/{totalQuestions}
+                    </Text>
                 </View>
 
                 {/* Body */}
